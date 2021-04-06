@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Albums</title>
+</head>
+<body>
+<h1>Albums</h1>
+<ul th:each="potato : ${albums}">
+   <li th:text="${potato.title}">
+
+   </li>
+    <li th:text="${potato.artist}">
+
+    </li>
+    <li th:text="${potato.songCount}">
+
+    </li>
+    <li th:text="${potato.length}">
+
+    </li>
+    <li>
+    <img th:src="${potato.imageUrl}">
+    </li>
+</ul>
+</body>
+</html>
