@@ -6,10 +6,7 @@ Create a psql database called songr. Update the application.properties with your
 
 ### About
 
-This app demonstrates basic Spring functionality and implementation. Users have the option to save albums to the database and view all albums stored in the database. More to come soon!
-
-
-
+This app demonstrates basic Spring functionality and implementation. Users have the option to save albums to the database and view all albums stored in the database. It also allows users to add songs to DB and have them associated with a given album. More to come soon!
 
 
 ### Attribution

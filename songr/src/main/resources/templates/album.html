@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Album Info</title>
+</head>
+<body>
+<h1 th:text="${album.title}"></h1>
+<nav>
+    <ul>
+        <li><a href="albums">Albums</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="song">Songs</a></li>
+    </ul>
+</nav>
+<ul>
+    <li th:text="'Artist:' + ${album.artist}">
+
+    </li>
+    <li th:text="${album.songCount}">
+
+    </li>
+    <li th:text="${album.length}">
+
+    </li>
+    <li>
+        <img th:src="${album.imageUrl}" class="albumArt">
+
+    </li>
+
+
+</ul>
+ <h2> Track List:</h2>
+<ul th:each="potato: ${album.songs}">
+    <li th:text="${potato.title}"></li>
+    <li th:text="${potato.length}"></li>
+    <li th:text="${potato.trackNumber}"></li>
+
+
+</ul>
+
+<form action="/song" method="POST">
+    <fieldset>
+        <legend>Add Song</legend>
+        <label for="title">Title</label>
+        <input type="text" name="title">
+        <label for="length">Length (Seconds)</label>
+        <input type="text" name="length">
+        <label for="trackNumber">Track Number</label>
+        <input type="text" name="trackNumber">
+        <input type="submit" value="Add Album">
+
+        <select name="id">
+        <option th:value="${album.id}"
+        th:text="${album.title}">
+
+        </option>
+        </select>
+    </fieldset>
+</body>
+</html>

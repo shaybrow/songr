@@ -7,6 +7,13 @@
 </head>
 <body>
 <h1>Albums</h1>
+<nav>
+    <ul>
+        <li><a href="albums">Albums</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="song">Songs</a></li>
+    </ul>
+</nav>
 <ul th:each="potato : ${albums}">
    <li th:text="${potato.title}">
 
@@ -21,8 +28,11 @@
 
     </li>
     <li>
+        <a th:href="'/albums/' +${potato.id}">More details</a>
     <img th:src="${potato.imageUrl}" class="albumArt">
+
     </li>
+
 </ul>
 <form action="/albums" method="POST">
     <fieldset>
