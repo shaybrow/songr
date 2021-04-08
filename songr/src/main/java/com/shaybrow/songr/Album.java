@@ -1,9 +1,7 @@
 package com.shaybrow.songr;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -15,7 +13,11 @@ public class Album {
     String artist;
     int songCount;
     int length;
+//    this or @Lob tells postgress to change to a larger variable type
+    @Column(columnDefinition = "TEXT")
     String imageUrl;
+    @OneToMany(mappedBy="partOf", cascade = CascadeType.ALL)
+    List<Song> songs;
 
     public Album(String title, String artist, int songCount, int length, String imageUrl) {
         this.title = title;
@@ -24,7 +26,20 @@ public class Album {
         this.length = length;
         this.imageUrl = imageUrl;
     }
+
     Album(){}
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(List<Song> songs) {
+        this.songs = songs;
+    }
 
     public void setTitle(String title) {
         this.title = title;

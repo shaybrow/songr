@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Songs</title>
+</head>
+<body>
+<h1>Songs</h1>
+<nav>
+    <ul>
+        <li><a href="albums">Albums</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="song">Songs</a></li>
+    </ul>
+</nav>
+<ul th:each="potato : ${songs}">
+    <li th:text="${potato.title}">
+<!--Title: -->
+    </li>
+    <li th:text="${potato.trackNumber}">
+<!--Track Number: -->
+    </li>
+
+    <li th:text="${potato.length}">
+<!--Length:-->
+    </li>
+
+</ul>
+</body>
+</html>
